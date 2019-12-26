@@ -1,7 +1,7 @@
 # hrrsetup
 Sets up a fresh linux install for the hackreactor immersive
 
-Contains some optional installs
+### Contains some optional installs
 	
 	build-essentials
 	zlib1g-dev
@@ -10,7 +10,7 @@ Contains some optional installs
 	libglu1-mesa-dev
 	NVIDIA Graphics drivers 440
 
-Uses apt-get install for the following:
+### Uses apt-get install for the following:
 
 	wget
 	unzip
@@ -21,7 +21,7 @@ Uses apt-get install for the following:
 	npm
 
 
-Will download and apt install current(as of this writing) .deb versions of the following:
+### Will download and apt install current(as of this writing) .deb versions of the following:
 
 	Chrome - dev
 	Zoom Meetings client
@@ -29,17 +29,17 @@ Will download and apt install current(as of this writing) .deb versions of the f
 	VS Code
 	NPM
 
-Installs extensions necessary for VS Code
+### Installs extensions necessary for VS Code
 	
 	ESlint
 	LiveShare
 
-Installs using npm are as follows:
+### Installs using npm are as follows:
 	
 	eslint - globally
 	reactorcore/eslint-config-hackreactor - globally
 
-Optional -
+#### Optional -
 	
 	wakatime extension
 	chrome debugger extension
