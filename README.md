@@ -3,11 +3,11 @@ Sets up a fresh linux install for the hackreactor immersive
 
 Contains some optional installs
 
-build-essentials
-zlib1g-dev
-mesa-common-dev
-libgl1-mesa-dev
-libglu1-mesa-dev
+	build-essentials
+	zlib1g-dev
+	mesa-common-dev
+	libgl1-mesa-dev
+	libglu1-mesa-dev
 
 NVIDIA Graphics drivers 440
 
