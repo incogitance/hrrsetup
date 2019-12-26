@@ -201,7 +201,7 @@ then
     echo -e '\n\U0001f4bc\U0001f44d'-----Creating $HOME/HackReactor Workspace-----'\U0001f44d\U0001f4bc'
     if [ ! -d ~/HackReactor ]
     then
-        sudo mkdir ~/HackReactor
+        mkdir $HOME/HackReactor
     fi
     cd ~/HackReactor
     echo 'Would you like to make the folder icon the HackReactor Logo? (y)yes/(n)no:'
@@ -210,50 +210,28 @@ then
     if [ $hricon = 'y' -o $hricon = 'yes' -o $hricon = 'Y' -o $hricon = 'YES' ]
     then
         echo -e '\n\U0001f48e'-----Downloading HackReactor Logo-----'\U0001f48e'
-        wget $HACKREACTORLOGO -P $HOME/HackReactor
+        wget -P $HOME/HackReactor $HACKREACTORLOGO
+        sudo mv $HOME/HackReactor/favicon.ico $HOME/HackReactor/.foldericon.ico
     else
         echo 'Would you like to set a custom folder icon for your new HackReactor Workspace folder? (y)yes/(n)no:'
         read icon
         if [ $icon = 'y' -o $icon = 'yes' -o $icon = 'Y' -o $icon = 'YES' ]
         then
             echo 'Please ensure that the icon file (*.png) is currently located in '$HOME'/HackReactor before continueing!!'
-            echo 'The folder icon file must be of type png or ico'
+            echo 'The folder icon file must be of type png or ico and named foldericon'
             echo 'Press [enter] when ready.'
             read temp
-        fi
-    fi
-    #--
-    if [ $icon = 'y' -o $icon = 'yes' -o $icon = 'Y' -o $icon = 'YES' ]
-    then
-        echo 'Setting the custom folder icon'
-        # Determine if there is an icon file
-        iconfile=$(find $HOME/HackReactor/ -maxdepth 1 -name '*.ico')
-        icoicon='ico'
-        if [ -f $iconfile ]
-        then
-            iconfile=$(find $HOME/HackReactor/ -maxdepth 1 -name '*.png')
-            icoicon='png'
-        fi
-
-        if [ $icoicon = 'ico' ]
-        then
-            mv $iconfile $HOME/HackReactor/.foldericon.ico
+            echo 'Setting the custom folder icon'
+            # Determine if there is an icon file
+            mv $HOME/HackReactor/foldericon.ico $HOME/HackReactor/.foldericon.ico
+            mv $HOME/HackReactor/foldericon.png $HOME/HackReactor/.foldericon.ico
             #-- set the standard::custom-icon metadata to $HOME/HackReactor/.foldericon.ico
             gio set $HOME/HackReactor metadata::custom-icon file://$HOME/HackReactor/.foldericon.ico
-        # Otherwise rename the containing png file.
         fi
-        if [ $icoicon = 'png' ]
-        then
-            mv $iconfile $HOME/HackReactor/.foldericon.png
-        #-- set the standard::custom-icon metadata to $HOME/HackReactor/.foldericon.png
-            gio set $HOME/HackReactor metadata::custom-icon file://$HOME/HackReactor/.foldericon.png
-
-        fi
-
-        gio info $HOME/HackReactor
     fi
+    gio info $HOME/HackReactor
 fi
 #-- Show a nice ending message
 echo -e '\n\U0001f44dCompleted\n'
-echo -e '\n\t\U0001f61b!!'Have a Happy 'time' Hacking'!!\U0001f61b\n'
+echo -e '\n\t\U0001f61b!!'Happy Hacking'!!\U0001f61b\n'
 exit 0
