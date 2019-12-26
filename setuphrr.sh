@@ -82,8 +82,12 @@ fi
 
 echo -e '\n\U0001f44d'-----Installing Git from Repositories-----'\U0001f44d'
 sudo apt-get -y install git
+
 echo -e '\n\U0001f44d'-----Installing Mongodb from Repositories-----'\U0001f44d'
 sudo apt-get install mongodb
+
+echo -e '\n\U0001f44d'-----Installing apache2 from Repositories-----'\U0001f44d'
+sudo apt-get install apache2
 
 #-- install the slack application for chat
 if [ ! -f $HOME/Downloads/$SLACK ]
@@ -132,6 +136,7 @@ then
 fi
 
 echo -e '\n\U0001f60f'-----Setting up HackReactor specific settings.json for VScode-----'\U0001f60f'
+
 #-- VScode settings that are specific to HackReactor
 cat <<EOM >~/.config/Code/User/settings.json
 
@@ -189,6 +194,7 @@ sudo npm install -g create-react-app
 #-- install eslint globally
 echo -e '\n\U0001f44d'-----Installing ESLint Globally using Node Package Manager-----'\U0001f44d'
 sudo npm install -g eslint
+
 #-- install HackReactor Style Enforcement
 echo -e '\n\U0001f44d'-----Installing ESLint HackReactor Config Globally-----'\U0001f44d'
 sudo npm install -g reactorcore/eslint-config-hackreactor
