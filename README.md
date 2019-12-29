@@ -1,5 +1,5 @@
 # hrrsetup
-Sets up a fresh linux install for the hackreactor immersive
+Sets up a fresh debian based linux install for the hackreactor immersive
 - ### Contains some optional installs
   - build-essentials
   - zlib1g-dev
